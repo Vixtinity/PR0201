@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analizador de Texto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>📊 Analizador de Texto</h1>
+
+    <section class="input-section">
+      <label for="texto">Introduce tu texto:</label>
+      <textarea id="texto" placeholder="Escribe o pega tu texto aquí..."></textarea>
+      <button id="analizarBtn">Analizar Texto</button>
+    </section>
+
+    <section id="resultados" class="resultados">
+      <h2>Resultados del Análisis</h2>
+      <div class="cards">
+        <div class="card"><h3>Caracteres</h3><p id="charCount">0</p></div>
+        <div class="card"><h3>Caracteres sin espacios</h3><p id="charNoSpaceCount">0</p></div>
+        <div class="card"><h3>Palabras</h3><p id="wordCount">0</p></div>
+        <div class="card"><h3>Frases</h3><p id="sentenceCount">0</p></div>
+        <div class="card"><h3>Párrafos</h3><p id="paragraphCount">0</p></div>
+        <div class="card"><h3>Longitud Media Palabra</h3><p id="avgWordLength">0</p></div>
+        <div class="card"><h3>Longitud Media Frase</h3><p id="avgSentenceLength">0</p></div>
+      </div>
+
+      <div class="keywords">
+        <h3>Palabras Clave</h3>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./dist/main.js"></script>
+
+</body>
+</html>

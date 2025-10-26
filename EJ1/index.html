@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureDev Conference</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Información Personal</legend>
+            <label for="nombre">Nombre y apellidos:</label>
+            <input type="text" id="nombre" ><br>
+
+            <label for="numerotelefono">Teléfono:</label>
+            <input type="number" id="numerotelefono" pattern="+"><br>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" ><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Detalles de la Inscripción</legend>
+            <label for="numeroacompañantes">Número de acompañantes:</label><br>
+            <input type="number" placeholder="+34123456789"  id="numeroacompañantes" minlength="0" maxlength="5"><br>
+
+            <p>Tipo de entrada:</p>
+            <input type="radio" id="general" name="tipoEntrada" value="general" checked>
+            <label for="general">General</label><br>
+            <input type="radio" id="estudiante" name="tipoEntrada" value="estudiante">
+            <label for="estudiante">Estudiante</label><br>
+            <input type="radio" id="vip" name="tipoEntrada" value="vip">
+            <label for="vip">VIP</label><br>
+
+            <label for="pais">País:</label><br>
+            <select id="pais">
+                <option value="">Seleccione su país:</option>
+                <option value="españa">España</option>
+                <option value="francia">Francia</option>
+                <option value="portugal">Portugal</option>
+            </select><br>
+
+            <label for="documento">Sube tu certificado (PDF o imagen):</label>
+            <input type="file" id="documento" accept=".pdf, image/*" >
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferencias y Talleres</legend>
+            <label for="busqueda">Buscar sesiones o ponentes:</label><br>
+            <input type="search" id="busqueda" name="busqueda"><br>
+
+            <label for="color">Escoge color de la acreditación:</label>
+            <input type="color" id="color"><br>
+
+            <label for="talleres">Selecciona los talleres a los que deseas asistir:</label><br>
+            <select id="talleres" name="talleres" multiple size="4">
+                <option value="frontend">Desarrollo Frontend</option>
+                <option value="backend">Backend con Node.js</option>
+                <option value="ia">Inteligencia Artificial</option>
+                <option value="cloud">Computación en la Nube</option>
+            </select><br>
+
+            <label for="valorar">Valora tu experiencia (1-10):</label>
+            <input type="range" id="valorar" name="valorar" min="1" max="10">
+            <p id="valor-range">Aqui se muestra el valor</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Cuenta de Usuario</legend>
+            <label for="correo">Correo electrónico:</label><br>
+            <input type="email" id="correo"><br>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña"><br>
+
+            <label for="confirmarcontra">Confirmar contraseña:</label>
+            <input type="password" id="confirmarcontra" oninput="validaciones()" ><br>
+
+            <p id="confirmada"></p>
+
+        </fieldset>
+        <fieldset>
+            <legend>Comentarios</legend>
+            <label for="comentario">Escribe un comentario:</label>
+            <textarea id="comentario" name="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Términos</legend>
+            <input type="checkbox" id="terminos" required>
+            <label for="terminos">Acepto los términos y condiciones</label>
+        </fieldset>
+
+        <button type="submit" onclick="return validaciones()">Enviar</button>
+        <button type="button">Ayuda</button>
+        <button type="reset">Resset</button>
+    </form>
+</body>
+<script src="script.js"></script> 
+</html>
