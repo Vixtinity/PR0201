@@ -1,38 +1,38 @@
-import { countWords, getWordFrequency, palabrasunicas, topPalabras } from "../analyzer";
+import { contarPalabras, frecuenciaPalabras, palabrasunicas, topPalabras } from "../analyzer";
 
 describe("Pruebas de countWords", () => {
 
     test("Texto vacío", () => {
-        expect(countWords("")).toBe(0);
+        expect(contarPalabras("")).toBe(0);
     });
 
     test("Solo espacios y saltos de línea", () => {
-        expect(countWords(" \n \t ")).toBe(0);
+        expect(contarPalabras(" \n \t ")).toBe(0);
     });
     
     test("Palabras normales, guiones, y puntuación", () => {
 
-        expect(countWords("hola-mundo. prueba")).toBe(3);
+        expect(contarPalabras("hola-mundo. prueba")).toBe(3);
 
-        expect(countWords("¡Hola! ¿Cómo estás? Tres palabras-cuatro.")).toBe(6);
+        expect(contarPalabras("¡Hola! ¿Cómo estás? Tres palabras-cuatro.")).toBe(6);
 
     });
 
 
     test("Mayúsculas y minúsculas se cuentan igual", () => {
-        expect(countWords("HoLa mundo HOLA")).toBe(3);
+        expect(contarPalabras("HoLa mundo HOLA")).toBe(3);
     });
 });
 
 describe("Pruebas de getWordFrequency", () => {
 
     test("Texto vacío", () => {
-        expect(getWordFrequency("")).toEqual(new Map());
+        expect(frecuenciaPalabras("")).toEqual(new Map());
     });
     
     // ✅ Pasa: Ignorar stop words.
     test("Ignorar stop words", () => {
-        const resultado = getWordFrequency("el perro y el gato a la cama");
+        const resultado = frecuenciaPalabras("el perro y el gato a la cama");
         const esperado = new Map([
             ["perro", 1],
             ["gato", 1],
@@ -43,7 +43,7 @@ describe("Pruebas de getWordFrequency", () => {
     
 
     test("Mayúsculas y minúsculas se cuentan igual", () => {
-        const resultado = getWordFrequency("Manzana pera MANZANA");
+        const resultado = frecuenciaPalabras("Manzana pera MANZANA");
         const esperado = new Map([
             ["manzana", 2],
             ["pera", 1]
@@ -58,7 +58,7 @@ describe("Pruebas de getWordFrequency", () => {
             ["dos", 2],
             ["tres", 1]
         ]);
-        expect(getWordFrequency(texto)).toEqual(esperado);
+        expect(frecuenciaPalabras(texto)).toEqual(esperado);
     });
 });
 

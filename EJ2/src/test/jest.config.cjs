@@ -1,23 +1,5 @@
-// jest.config.cjs
-const { createDefaultPreset } = require("ts-jest");
-const tsJestTransformCfg = createDefaultPreset().transform;
-
-/** @type {import("jest").Config} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  testEnvironment: "node",
-  transform: {
-    ...tsJestTransformCfg,
-  },
-  
-  testMatch: ["**/test/**/*.test.ts"], 
-  
-  testPathIgnorePatterns: [
-      "/node_modules/",
-      "/dist/"
-  ],
-  collectCoverage: true,
-  collectCoverageFrom: [
-    "src/**/*.ts",
-    "!src/test/**/*.ts" 
-  ],
+  preset: 'ts-jest',
+  testEnvironment: 'node',
 };

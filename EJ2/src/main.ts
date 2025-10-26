@@ -1,4 +1,4 @@
-import { countWords, topPalabras, getWordFrequency } from "./analyzer.js";
+import { contarPalabras, topPalabras, frecuenciaPalabras } from "./analyzer.js";
 
 /**
  * Obtiene las estadísticas principales del texto
@@ -8,7 +8,7 @@ function analizarTexto(texto: string) {
   const palabras = texto.trim();
   const charCount = palabras.length;
   const charNoSpaces = palabras.replace(/\s+/g, "").length;
-  const wordCount = countWords(palabras);
+  const wordCount = contarPalabras(palabras);
   const sentenceCount = palabras.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
   const paragraphCount = palabras.split(/\n+/).filter(p => p.trim().length > 0).length;
   const avgWordLength = wordCount > 0 ? (charNoSpaces / wordCount).toFixed(2) : "0";
@@ -24,9 +24,7 @@ function analizarTexto(texto: string) {
   (document.getElementById("avgSentenceLength") as HTMLElement).textContent = avgSentenceLength.toString();
 }
 
-/**
- * Inicializa los eventos del DOM
- */
+
 function inicializarEventos() {
   const textarea = document.getElementById("texto") as HTMLTextAreaElement;
   const btn = document.getElementById("analizarBtn") as HTMLButtonElement;
@@ -34,7 +32,7 @@ function inicializarEventos() {
   textarea.addEventListener("input", () => {
     const texto = textarea.value;
     (document.getElementById("charCount") as HTMLElement).textContent = texto.length.toString();
-    (document.getElementById("wordCount") as HTMLElement).textContent = countWords(texto).toString();
+    (document.getElementById("wordCount") as HTMLElement).textContent = contarPalabras(texto).toString();
   });
 
   btn.addEventListener("click", () => analizarTexto(textarea.value));

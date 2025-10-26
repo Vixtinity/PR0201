@@ -5,3 +5,4 @@ src/test/coverage/
 src/test/analyzer.test.js
 src/analyzer.js
 src/main.js
+coverage/
