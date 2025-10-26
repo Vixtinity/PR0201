@@ -40,4 +40,4 @@ function inicializarEventos() {
   btn.addEventListener("click", () => analizarTexto(textarea.value));
 }
 
-inicializarEventos;
+inicializarEventos();
